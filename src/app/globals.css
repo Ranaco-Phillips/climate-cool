@@ -3,27 +3,47 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --font-family-sans: Inter;
+  --font-family-serif: Georgia;
+  --font-family-mono: IMB Plex Mono;
+  --foreground-rgb: 34, 51, 59;
+  --background-rgb: 234, 224, 213;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --foreground-rgb: 34, 51, 59;
+    --background-rgb: 234, 224, 213;
   }
+}
+
+html {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background: rgb(var(--background-rgb));
+}
+
+body::-webkit-scrollbar-track {
+	background-color: #ddd
+}
+
+ body::-webkit-scrollbar {
+	width: 6px;
+	background-color: #ddd
+}
+
+body::-webkit-scrollbar-thumb {
+	background-color: rgb(var(--foreground-rgb));;
+}
+
+body::-webkit-scrollbar {
+	width: 8px
 }
 
 @layer utilities {
