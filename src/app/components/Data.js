@@ -12,17 +12,19 @@ const services = [
     {
         icon: '',
         title:'Installation',
-        description:`Whether you need a new air conditioning unit, refrigerator, or washing machine installed, our expert technicians are here to help. We ensure that your appliance is installed correctly and efficiently, so you can enjoy its benefits without any hassle.`,
+        description:`Whether you need a new air conditioning unit, refrigerator, or washing machine installed, our expert technicians are here to help.`,
     },
     {
         icon: Servicing,
         title:'Servicing',
-        description:`Regular servicing of your appliances is essential to maintain their efficiency and prolong their lifespan. Our comprehensive servicing packages are designed to keep your air conditioner, refrigerator, and washing machine in top condition.`,
+        description:`
+        Keeping your appliances regularly serviced is crucial for maintaining their efficiency and extending their lifespan`,
     },
     {
+        //, restoring them to optimal working condition
         icon: Repairs,
         title:'Repairs',
-        description:`Is your air conditioner not cooling properly? Is your refrigerator making strange noises? Our team of skilled technicians can diagnose and repair any issues with your appliances, restoring them to optimal working condition.`,
+        description:`Is your air conditioner not cooling properly? Our team of skilled technicians can diagnose and repair any issues with your appliances.`,
     },
 ];
 
