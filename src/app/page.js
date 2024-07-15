@@ -1,9 +1,17 @@
+'use client'
+
+import { useEffect, useRef, useState } from 'react';
+
 import Link from 'next/link'
 import Image from "next/image"
 
 import Hero from '/public/Hero.png'
 import ChooseUs from '/public/Choose-us.png'
+import HexDesign2 from '/public/Hex Design 2.svg'
+import HexDesign3 from '/public/Hex Design 3.svg'
 import {choice, contact, services} from '/src/app/components/Data'
+
+import { useInView } from 'react-intersection-observer';
 
 export default function Home() {
 
@@ -19,12 +27,12 @@ export default function Home() {
                   <h1 className='text-center md:text-balance font-bold md:text-start text-4xl md:text-4xl xl:text-8xl 2xl:font-medium captialize'>
                     Transforming Spaces Enhancing Lives
                   </h1>
-                  < p className="text-center md:text-2xl md:text-start leading-10 capitalize pt-3 md:pr-48">
+                  < p className="text-center md:text-2xl md:text-start leading-relaxed capitalize pt-4 md:pr-48">
                     Experience unparalleled comfort and convenience with our expert appliance services.
                   </p>
                 </div>
-                <div className='justify-center text-center md:text-start pt-5 md:pt-10'>
-                    <button className='border-2 rounded-lg font-bold border-khaki bg-khaki text-gunmetal text-xl lg:text-base hover:text-khaki hover:bg-gunmetal transition-colors duration-300 py-2 px-4 lg:py-3 lg:px-8'>
+                <div className='justify-center text-center md:text-start pt-5 md:pt-8 '>
+                    <button className='border-2 rounded-lg font-bold border-khaki bg-khaki text-gunmetal text-xl lg:text-base  hover:text-khaki hover:bg-gunmetal transition-colors duration-300 py-2 px-4 lg:py-3 lg:px-8'>
                       Explore Our Services
                     </button>
                 </div>
@@ -67,9 +75,17 @@ export default function Home() {
         </section>
 
         {/* Services */}
-
+        <div className='relative '>
+              <Image 
+                src={HexDesign2} alt="Icon" 
+                style={{width: '17%', height: 'auto',}} 
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                className={`absolute hidden md:block -left-14 md:-top-48`}
+              />
+            </div>
         <section id='services' className='py-10'>
           <div className="container mx-auto px-4 lg:px-16">
+            
             <div className="flex flex-wrap justify-center text-center">
               <div className="w-full md:w-full p-4 lg:pt-20">
                 <h2 className='flex font-bold text-2xl md:text-4xl xl:text-4xl 2xl:text-6xl 2xl:font-medium captialize pt-1.5 lg:pb-8'>
@@ -124,7 +140,7 @@ export default function Home() {
         </section>
 
         {/* Why Choose Us */}
-        <section className='pt-16 pb-20 lg:pt-28 '>
+        <section id="why choose us" className='pt-16 pb-20 lg:pt-28 '>
           <div className="container mx-auto px-4 lg:px-16">
             <div className="flex flex-wrap justify-center">
               <div className="w-full md:w-6/12 p-4 order-2">
@@ -164,6 +180,14 @@ export default function Home() {
                     </div>
                   ))
                 }
+                 <div className='relative'>
+                    <Image 
+                      src={HexDesign3} alt="Icon" 
+                      style={{width: '40%', height: 'auto',}} 
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      className={`absolute hidden md:block md:-top-8 md:-right-32`}
+                    />
+                  </div>
               </div>
               <div className=" w-full md:w-6/12 p-4 relative order-1">
                 <div className='flex flex-wrap font-bold items-center justify-center border-2 rounded-full w-32 h-32 border-khaki bg-khaki absolute -right-4 md:right-40 z-10'>
@@ -185,7 +209,7 @@ export default function Home() {
         </section>
 
         {/* Contact Us */}
-        <section id='contact' className='py-10'>
+        <section id='contact' className='py-10 overflow-hidden'>
           <div className="container mx-auto px-4 lg:px-16">
             <div className="flex flex-wrap justify-center md:justify-normal text-center md:text-start">
               <div className="w-full md:w-6/12 p-4 lg:pt-20">
@@ -224,11 +248,21 @@ export default function Home() {
                     ))
                   }
                 </div>
+                <div className='relative'>
+                  <Image 
+                    src={HexDesign3} alt="Icon" 
+                    style={{width: '50%', height: 'auto',}} 
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    className={`absolute hidden md:block rotate-180 md:-top-8 md:-left-32`}
+                  />
+                </div>
+                
               </div>
 
               <div className="w-full md:w-6/12 p-4 lg:pt-20">
                 <div className='bg-gunmetal px-14 py-12 rounded-xl'>
-                  <form className="flex flex-wrap">
+                 
+                  <form className="flex flex-wrap ">
                     <div className="w-full md:w-full">
                         <label className="block uppercase tracking-wide text-xs text-khaki font-bold mb-2" htmlFor="grid-first-name">
                           Name
@@ -245,13 +279,13 @@ export default function Home() {
                         </label>
                         <input className="appearance-none block w-full border-b-2 border-b-zinc rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-gold" id="grid-phone" type="tel" placeholder="123-456-7890" />
                           
-                        <label htmlFor="message" className="block mb-2 text-sm font-medium text-khaki dark:text-khaki">Your message</label>
+                        <label htmlFor="message" className="block mb-2 text-sm uppercase font-bold text-khaki dark:text-khaki">message</label>
                         <textarea id="message" rows="4" className="block p-2.5 w-full text-sm text-gunmetal rounded-lg border border-gunmetal focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:gunmetal dark:focus:ring-khaki dark:focus:border-khaki" placeholder="Write your thoughts here..."></textarea>
 
                     </div>
 
                     <div className="w-full md:w-full justify-center text-center py-8 px-3">
-                        <button className='border-2 bg-khaki border-khaki text-xl lg:text-base py-2 px-4 lg:py-3 lg:px-8 mt-5 rounded-md hover:bg-gray-800 hover:text-zinc transition-colors duration-300'>
+                        <button className='border-2 bg-khaki border-khaki text-xl font-bold lg:text-base py-2 px-4 lg:py-3 lg:px-8 mt-5 rounded-md hover:bg-gray-800 hover:text-khaki hover:bg-gunmetal transition-colors duration-300'>
                             Send Message
                         </button>
                     </div>
